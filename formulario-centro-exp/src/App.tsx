@@ -1,12 +1,13 @@
 import './App.css'
+import TusDatos from './components/TusDatos'
+// import CalificaTuExperiencia from './components/CalificaTuExperiencia'
 
 function App() {
 
   return (
-    <>      
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <>
+      <TusDatos />
+      {/* <CalificaTuExperiencia /> */}
     </>
   )
 }

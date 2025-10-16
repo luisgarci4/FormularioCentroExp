@@ -3,35 +3,43 @@ type Props = { onRestart?: () => void };
 export default function RegistroExitoso({ onRestart }: Props) {
   return (
     <div
-      className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100 text-center"
+      className="
+        w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl
+        p-8 sm:p-10 border border-gray-100
+        flex flex-col items-center min-h-[28rem]
+      "
       aria-label="Registro exitoso"
     >
-      <div className="mx-auto mb-6">
-        <svg
-          className="w-20 h-20 text-green-600 mx-auto"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          aria-hidden
-        >
-          <circle cx="12" cy="12" r="10" strokeWidth="2" />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 12l2 2 4-4"
-          />
-        </svg>
+      {/* Contenido centrado */}
+      <div className="mt-2 flex flex-col items-center text-center gap-4">
+        <div>
+          <svg
+            className="w-20 h-20 text-green-600 mx-auto"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden
+          >
+            <circle cx="12" cy="12" r="10" strokeWidth="2" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M9 12l2 2 4-4"
+            />
+          </svg>
+        </div>
+
+        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
+          ¡Gracias por tu visita!
+        </h1>
+        <p className="text-sm sm:text-base text-gray-600">
+          Te esperamos en Tlapps City
+        </p>
       </div>
 
-      <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
-        ¡Gracias por tu visita!
-      </h1>
-      <p className="mt-2 text-sm sm:text-base text-gray-600">
-        Te esperamos en Tlapps City
-      </p>
-
-      <div className="mt-10">
+      {/* Botón anclado abajo para igualar alturas */}
+      <div className="mt-auto w-full pt-8">
         <button
           type="button"
           onClick={onRestart}

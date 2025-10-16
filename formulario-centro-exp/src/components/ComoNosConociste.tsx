@@ -14,7 +14,11 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
 
   return (
     <form
-      className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100"
+      className="
+        w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl
+        p-8 sm:p-10 border border-gray-100
+        flex flex-col min-h-[28rem]
+      "
       aria-label="¿Cómo nos conociste?"
     >
       {/* Encabezado */}
@@ -27,8 +31,8 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
         </p>
       </header>
 
-      {/* Opciones */}
-      <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {/* Opciones (compactadas) */}
+      <div className="mt-6 grid grid-cols-1 gap-3">
         {opciones.map((op) => {
           const activa = opcionSeleccionada === op.id;
           return (
@@ -38,8 +42,8 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
               onClick={() => setOpcionSeleccionada(op.id)}
               aria-pressed={activa}
               className={[
-                "p-6 sm:p-7 rounded-2xl border text-left w-full",
-                "transition-all duration-200",
+                "w-full rounded-2xl border text-left transition-all duration-200",
+                "bg-white px-4 py-4 sm:py-5",
                 activa
                   ? "border-transparent shadow-md"
                   : "border-black/10 hover:border-[#3e00b3]/30 hover:shadow-sm",
@@ -47,16 +51,15 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
               style={
                 activa
                   ? {
-                      background:
-                        "linear-gradient(180deg, #ffffff 0%, #f7f7ff 100%)",
+                      background: "linear-gradient(180deg, #ffffff 0%, #f7f7ff 100%)",
                       boxShadow:
                         "0 0 0 2px rgba(38,0,137,0.1), 0 10px 24px -12px rgba(0,0,0,0.18)",
                     }
-                  : { backgroundColor: "white" }
+                  : undefined
               }
             >
               <div className="flex flex-col items-center gap-2">
-                <span className="text-4xl sm:text-5xl">{op.icon}</span>
+                <span className="text-3xl sm:text-4xl">{op.icon}</span>
                 <span className="text-base sm:text-lg font-semibold text-gray-800 text-center">
                   {op.label}
                 </span>
@@ -66,8 +69,8 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
         })}
       </div>
 
-      {/* Botones inferiores */}
-      <div className="mt-8 grid grid-cols-2 gap-4">
+      {/* Botones inferiores (anclados al fondo de la tarjeta) */}
+      <div className="mt-auto pt-8 grid grid-cols-2 gap-4">
         <button
           type="button"
           onClick={onPrev}

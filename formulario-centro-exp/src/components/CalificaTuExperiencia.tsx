@@ -1,13 +1,11 @@
 import { useState } from "react";
-import ProgressBar from "./ProgressBar";
 
 type Props = {
-  current?: number;
   onPrev?: () => void;
   onNext?: () => void;
 };
 
-export default function SatisfaccionFormCard({ current = 2, onPrev, onNext }: Props) {
+export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
   type Opcion = { id: number; emoji: string; label: string };
 
   const opciones: Opcion[] = [
@@ -18,9 +16,9 @@ export default function SatisfaccionFormCard({ current = 2, onPrev, onNext }: Pr
     { id: 4, emoji: "😍", label: "Muy satisfecho" },
   ];
 
-  const [selected, setSelected] = useState<number | null>(3);
+  const [selected, setSelected] = useState<number | null>(null);
 
-  // Gradientes
+  // Gradientes suaves
   const softGradients = [
     "linear-gradient(90deg, #f6c1b9 0%, #f4a6a0 100%)",
     "linear-gradient(90deg, #f7d5a5 0%, #f3b673 100%)",
@@ -31,16 +29,8 @@ export default function SatisfaccionFormCard({ current = 2, onPrev, onNext }: Pr
   const ringColors = ["#ee9e95", "#e8b070", "#d9e29f", "#99cf98", "#94cfe9"];
 
   return (
-    <div
-      className="min-h-[100svh] flex flex-col items-center justify-center gap-6 px-5 sm:px-8 py-10"
-      style={{ background: "linear-gradient(180deg, #ffffff 0%, #e6f1ff 100%)" }}
-    >
-      {/* Progress bar arriba */}
-      <div className="w-full max-w-5xl">
-        <ProgressBar current={current} />
-      </div>
-
-      {/* Tarjeta principal */}
+    <>
+      {/* Tarjeta principal con mismas dimensiones que TusDatos/ComoNosConociste */}
       <form
         className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100"
         aria-label="Formulario de satisfacción"
@@ -54,7 +44,7 @@ export default function SatisfaccionFormCard({ current = 2, onPrev, onNext }: Pr
           </p>
         </header>
 
-        {/* Opciones de satisfaccion */}
+        {/* Opciones de satisfacción */}
         <div className="mt-6 space-y-4">
           {opciones.map((op, i) => {
             const isActive = selected === i;
@@ -104,7 +94,7 @@ export default function SatisfaccionFormCard({ current = 2, onPrev, onNext }: Pr
                 >
                   {op.emoji}
                 </span>
-                <span className="text-base sm:text-lg font-semibold">
+                <span className="text-base sm:text-lg font-semibold text-gray-800">
                   {op.label}
                 </span>
               </label>
@@ -149,6 +139,6 @@ export default function SatisfaccionFormCard({ current = 2, onPrev, onNext }: Pr
           100% { transform: translateY(-1px) scale(1.01); }
         }
       `}</style>
-    </div>
+    </>
   );
 }

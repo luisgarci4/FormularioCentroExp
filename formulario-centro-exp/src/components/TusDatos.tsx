@@ -1,78 +1,86 @@
 type Props = { onNext?: () => void };
 
 export default function TusDatosCard({ onNext }: Props) {
-  const label = "block text-sm sm:text-base font-medium text-black mb-2";
-  const fieldWrap = "mt-6";
-  const icon = "absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none";
-  const input =
-    "w-full h-12 sm:h-12 pl-11 pr-4 rounded-xl border border-black/20 " +
-    "focus:outline-none focus:ring-0 focus:border-black/70 bg-white";
-
   return (
-    <form
-      className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100"
-    >
-      <header className="text-center sm:text-left">
+    <div className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100">
+      <div className="text-center sm:text-left">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
           Tus datos
         </h1>
         <p className="mt-2 text-sm sm:text-base text-gray-600">
           Completa tu información personal
         </p>
-      </header>
+      </div>
 
-      <div className={fieldWrap}>
-        <label htmlFor="nombre" className={label}>Nombre completo</label>
+      {/* Nombre */}
+      <div className="mt-6">
+        <label htmlFor="nombre" className="block text-sm sm:text-base font-medium text-black mb-2">
+          Nombre completo
+        </label>
         <div className="relative">
-          <span className={icon}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" stroke="currentColor" strokeWidth="1.6" />
               <path d="M20 21a8 8 0 1 0-16 0" stroke="currentColor" strokeWidth="1.6" />
             </svg>
           </span>
-          <input id="nombre" type="text" className={input} />
+          <input
+            id="nombre"
+            type="text"
+            className="w-full h-12 sm:h-12 pl-11 pr-4 rounded-xl border border-black/20 focus:outline-none focus:ring-0 focus:border-black/70 bg-white"
+          />
         </div>
       </div>
 
-      <div className={fieldWrap}>
-        <label htmlFor="correo" className={label}>Correo electrónico</label>
+      {/* Correo */}
+      <div className="mt-6">
+        <label htmlFor="correo" className="block text-sm sm:text-base font-medium text-black mb-2">
+          Correo electrónico
+        </label>
         <div className="relative">
-          <span className={icon}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.6" />
               <path d="m22 8-10 6L2 8" stroke="currentColor" strokeWidth="1.6" />
             </svg>
           </span>
-          <input id="correo" type="email" className={input} />
+          <input
+            id="correo"
+            type="email"
+            className="w-full h-12 sm:h-12 pl-11 pr-4 rounded-xl border border-black/20 focus:outline-none focus:ring-0 focus:border-black/70 bg-white"
+          />
         </div>
       </div>
 
-      <div className={fieldWrap}>
-        <label htmlFor="telefono" className={label}>Teléfono</label>
+      {/* Teléfono */}
+      <div className="mt-6">
+        <label htmlFor="telefono" className="block text-sm sm:text-base font-medium text-black mb-2">
+          Teléfono
+        </label>
         <div className="relative">
-          <span className={icon}>
+          <span className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.2 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.9.31 1.78.57 2.63a2 2 0 0 1-.45 2.11L7.1 9.91a16 16 0 0 0 6 6l1.45-1.08a2 2 0 0 1 2.11-.45c.85.26 1.73.45 2.63.57A2 2 0 0 1 22 16.92Z" stroke="currentColor" strokeWidth="1.6" />
             </svg>
           </span>
-          <input id="telefono" type="tel" className={input} />
+          <input
+            id="telefono"
+            type="tel"
+            className="w-full h-12 sm:h-12 pl-11 pr-4 rounded-xl border border-black/20 focus:outline-none focus:ring-0 focus:border-black/70 bg-white"
+          />
         </div>
       </div>
 
+      {/* Botón */}
       <div className="mt-10">
         <button
           type="button"
           onClick={onNext}
-          className="
-            w-full h-12 rounded-xl text-white font-bold 
-            bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]
-            bg-[length:200%_auto] transition-all duration-500
-            hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]
-          "
+          className="w-full h-12 rounded-xl text-white font-bold bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee] bg-[length:200%_auto] transition-all duration-500 hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]"
         >
           Siguiente
         </button>
       </div>
-    </form>
+    </div>
   );
 }

@@ -11,7 +11,6 @@ export default function TusDatosCard({ onNext }: Props) {
   return (
     <form
       className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100"
-      aria-label="Formulario: Tus datos"
     >
       <header className="text-center sm:text-left">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
@@ -25,7 +24,7 @@ export default function TusDatosCard({ onNext }: Props) {
       <div className={fieldWrap}>
         <label htmlFor="nombre" className={label}>Nombre completo</label>
         <div className="relative">
-          <span className={icon} aria-hidden>
+          <span className={icon}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5Z" stroke="currentColor" strokeWidth="1.6" />
               <path d="M20 21a8 8 0 1 0-16 0" stroke="currentColor" strokeWidth="1.6" />
@@ -38,7 +37,7 @@ export default function TusDatosCard({ onNext }: Props) {
       <div className={fieldWrap}>
         <label htmlFor="correo" className={label}>Correo electrónico</label>
         <div className="relative">
-          <span className={icon} aria-hidden>
+          <span className={icon}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M4 6h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke="currentColor" strokeWidth="1.6" />
               <path d="m22 8-10 6L2 8" stroke="currentColor" strokeWidth="1.6" />
@@ -51,7 +50,7 @@ export default function TusDatosCard({ onNext }: Props) {
       <div className={fieldWrap}>
         <label htmlFor="telefono" className={label}>Teléfono</label>
         <div className="relative">
-          <span className={icon} aria-hidden>
+          <span className={icon}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.2 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.9.31 1.78.57 2.63a2 2 0 0 1-.45 2.11L7.1 9.91a16 16 0 0 0 6 6l1.45-1.08a2 2 0 0 1 2.11-.45c.85.26 1.73.45 2.63.57A2 2 0 0 1 22 16.92Z" stroke="currentColor" strokeWidth="1.6" />
             </svg>

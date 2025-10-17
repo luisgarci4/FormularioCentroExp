@@ -8,8 +8,8 @@ import ProgressBar from "./ProgressBar";
 export default function Wizard() {
   const [step, setStep] = useState(0); // 0..3
 
-  const next = () => setStep((s) => Math.min(3, s + 1));
-  const prev = () => setStep((s) => Math.max(0, s - 1));
+  const next = () => setStep(step + 1);
+  const prev = () => setStep(step - 1);
   const restart = () => setStep(0);
 
   return (
@@ -17,7 +17,7 @@ export default function Wizard() {
       className="min-h-[100svh] flex flex-col items-center justify-center gap-6 px-5 sm:px-8 py-10"
       style={{ background: "linear-gradient(180deg, #ffffff 0%, #e6f1ff 100%)" }}
     >
-      {/* Progress bar arriba, siempre visible */}
+      {/* Progress bar arriba */}
       <div className="w-full max-w-5xl">
         <ProgressBar current={step} />
       </div>

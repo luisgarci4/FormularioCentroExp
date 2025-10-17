@@ -8,7 +8,6 @@ export default function RegistroExitoso({ onRestart }: Props) {
         p-8 sm:p-10 border border-gray-100
         flex flex-col items-center min-h-[28rem]
       "
-      aria-label="Registro exitoso"
     >
       {/* Contenido centrado */}
       <div className="mt-2 flex flex-col items-center text-center gap-4">
@@ -18,7 +17,6 @@ export default function RegistroExitoso({ onRestart }: Props) {
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            aria-hidden
           >
             <circle cx="12" cy="12" r="10" strokeWidth="2" />
             <path
@@ -38,7 +36,6 @@ export default function RegistroExitoso({ onRestart }: Props) {
         </p>
       </div>
 
-      {/* Botón anclado abajo para igualar alturas */}
       <div className="mt-auto w-full pt-8">
         <button
           type="button"

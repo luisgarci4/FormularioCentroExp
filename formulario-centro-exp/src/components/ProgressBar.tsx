@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  current: number; // 0..2
+  current: number; // (para el numero dentro de los circulos)
   primary?: string; // color morado
 };
 
@@ -16,13 +16,12 @@ export default function ProgressBar({
   const isActive = (i: number) => i === current;
 
   return (
-    <nav aria-label="Progreso del formulario" className="w-full">
-      {/* Ancho reducido y alineado al de la tarjeta principal */}
+    <div className="w-full">
       <div className="mx-auto max-w-[28rem] sm:max-w-lg px-2 sm:px-4">
         <div className="flex items-center justify-center">
           {steps.map((_, i) => (
             <React.Fragment key={i}>
-              {/* Círculo */}
+              {/* Circulo */}
               <div
                 className={[
                   "rounded-full grid place-items-center text-white shadow-md",
@@ -36,7 +35,6 @@ export default function ProgressBar({
                   color: isDone(i) || isActive(i) ? "#fff" : "#3a3a3a",
                   outline: isActive(i) ? `3px solid ${primary}22` : "none",
                 }}
-                aria-current={isActive(i) ? "step" : undefined}
               >
                 {isDone(i) ? (
                   <svg
@@ -58,7 +56,7 @@ export default function ProgressBar({
                 )}
               </div>
 
-              {/* Línea entre círculos */}
+              {/* Linea entre círculos */}
               {i < steps.length - 1 && (
                 <div
                   className="h-[3px] rounded-full flex-1 mx-2 sm:mx-4 transition-colors duration-300 opacity-80"
@@ -67,13 +65,12 @@ export default function ProgressBar({
                       ? `linear-gradient(90deg, ${primary} 0%, ${primary}99 100%)`
                       : "linear-gradient(90deg, #c6b8ff 0%, #b7a7ff 100%)",
                   }}
-                  aria-hidden
                 />
               )}
             </React.Fragment>
           ))}
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

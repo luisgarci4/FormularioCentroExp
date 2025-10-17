@@ -18,7 +18,7 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
 
   const [selected, setSelected] = useState<number | null>(null);
 
-  // Gradientes suaves
+  // Gradientes
   const softGradients = [
     "linear-gradient(90deg, #f6c1b9 0%, #f4a6a0 100%)",
     "linear-gradient(90deg, #f7d5a5 0%, #f3b673 100%)",
@@ -30,21 +30,20 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
 
   return (
     <>
-      {/* Tarjeta principal con mismas dimensiones que TusDatos/ComoNosConociste */}
-      <form
+      {/* Tarjeta principal */}
+      <div
         className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100"
-        aria-label="Formulario de satisfacción"
       >
-        <header className="text-center sm:text-left">
+        <div className="text-center sm:text-left">
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
             Tu experiencia
           </h1>
           <p className="mt-2 text-sm sm:text-base text-gray-600">
             Califica tu experiencia en Tlapps City
           </p>
-        </header>
+        </div>
 
-        {/* Opciones de satisfacción */}
+        {/* Opciones de satisfaccion */}
         <div className="mt-6 space-y-4">
           {opciones.map((op, i) => {
             const isActive = selected === i;
@@ -90,7 +89,6 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
                     "text-2xl transition-transform duration-300 ease-out",
                     isActive ? "motion-safe:scale-110" : "group-hover:motion-safe:scale-105",
                   ].join(" ")}
-                  aria-hidden
                 >
                   {op.emoji}
                 </span>
@@ -124,7 +122,7 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
             Siguiente
           </button>
         </div>
-      </form>
+      </div>
 
       {/* Animaciones */}
       <style>{`

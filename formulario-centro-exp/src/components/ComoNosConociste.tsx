@@ -13,26 +13,25 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
   ];
 
   return (
-    <form
+    <div
       className="
-        w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl
+        w-full max-w-[28rem] sm:max-w-lg md:max-w-xl
+        bg-white shadow-xl rounded-2xl
         p-8 sm:p-10 border border-gray-100
         flex flex-col min-h-[28rem]
       "
-      aria-label="¿Cómo nos conociste?"
     >
-      {/* Encabezado */}
-      <header className="text-center sm:text-left">
+      <div className="text-center sm:text-left">
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
           ¿Cómo nos conociste?
         </h1>
         <p className="mt-2 text-sm sm:text-base text-gray-600">
           Cuéntanos cómo llegaste a nosotros
         </p>
-      </header>
+      </div>
 
-      {/* Opciones (compactadas) */}
-      <div className="mt-6 grid grid-cols-1 gap-3">
+      {/* Opciones: 1 columna movil, 2 columnas desktop */}
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {opciones.map((op) => {
           const activa = opcionSeleccionada === op.id;
           return (
@@ -40,13 +39,14 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
               key={op.id}
               type="button"
               onClick={() => setOpcionSeleccionada(op.id)}
-              aria-pressed={activa}
               className={[
-                "w-full rounded-2xl border text-left transition-all duration-200",
-                "bg-white px-4 py-4 sm:py-5",
+                "rounded-2xl border bg-white transition-all duration-200",
+                "px-4 h-24 sm:h-28",
+                "flex items-center justify-center text-center",
                 activa
                   ? "border-transparent shadow-md"
                   : "border-black/10 hover:border-[#3e00b3]/30 hover:shadow-sm",
+                "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#260089]/30",
               ].join(" ")}
               style={
                 activa
@@ -60,7 +60,7 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
             >
               <div className="flex flex-col items-center gap-2">
                 <span className="text-3xl sm:text-4xl">{op.icon}</span>
-                <span className="text-base sm:text-lg font-semibold text-gray-800 text-center">
+                <span className="text-base sm:text-lg font-semibold text-gray-800">
                   {op.label}
                 </span>
               </div>
@@ -69,7 +69,7 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
         })}
       </div>
 
-      {/* Botones inferiores (anclados al fondo de la tarjeta) */}
+      {/* Botones inferiores */}
       <div className="mt-auto pt-8 grid grid-cols-2 gap-4">
         <button
           type="button"
@@ -91,6 +91,6 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
           Siguiente
         </button>
       </div>
-    </form>
+    </div>
   );
 }

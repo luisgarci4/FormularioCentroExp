@@ -12,6 +12,9 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
     { id: "otros", label: "Otros", icon: "💡" },
   ];
 
+  // Habilita "Siguiente" solo si hay una opción seleccionada
+  const canContinue = Boolean(opcionSeleccionada);
+
   return (
     <div
       className="
@@ -30,7 +33,7 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
         </p>
       </div>
 
-      {/* Opciones: 1 columna movil, 2 columnas desktop */}
+      {/* Opciones: 1 columna móvil, 2 columnas desktop */}
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
         {opciones.map((op) => {
           const activa = opcionSeleccionada === op.id;
@@ -39,6 +42,7 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
               key={op.id}
               type="button"
               onClick={() => setOpcionSeleccionada(op.id)}
+              aria-pressed={activa}
               className={[
                 "rounded-2xl border bg-white transition-all duration-200",
                 "px-4 h-24 sm:h-28",
@@ -78,15 +82,19 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
         >
           Anterior
         </button>
+
         <button
           type="button"
           onClick={onNext}
-          className="
-            h-12 rounded-xl text-white font-semibold
-            bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]
-            bg-[length:200%_auto] transition-all duration-500
-            hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]
-          "
+          disabled={!canContinue}
+          aria-disabled={!canContinue}
+          className={[
+            "h-12 rounded-xl text-white font-semibold transition-all duration-500",
+            "bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee] bg-[length:200%_auto]",
+            "hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]",
+            "disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none",
+            "disabled:hover:bg-[position:0_0]" // anula la animación de hover si está deshabilitado
+          ].join(" ")}
         >
           Siguiente
         </button>

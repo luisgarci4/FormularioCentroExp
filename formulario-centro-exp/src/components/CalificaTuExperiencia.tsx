@@ -28,6 +28,9 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
   ];
   const ringColors = ["#ee9e95", "#e8b070", "#d9e29f", "#99cf98", "#94cfe9"];
 
+  // Habilita "Siguiente" solo si hay selección
+  const canContinue = selected !== null;
+
   return (
     <>
       {/* Tarjeta principal */}
@@ -43,7 +46,7 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
           </p>
         </div>
 
-        {/* Opciones de satisfaccion */}
+        {/* Opciones de satisfacción */}
         <div className="mt-6 space-y-4">
           {opciones.map((op, i) => {
             const isActive = selected === i;
@@ -112,12 +115,16 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
           <button
             type="button"
             onClick={onNext}
-            className="
-              h-12 rounded-xl text-white font-semibold
-              bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]
-              bg-[length:200%_auto] transition-all duration-500
-              hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]
-            "
+            disabled={!canContinue}
+            aria-disabled={!canContinue}
+            className={[
+              "h-12 rounded-xl text-white font-semibold",
+              "bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]",
+              "bg-[length:200%_auto] transition-all duration-500",
+              "hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]",
+              "disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none",
+              "disabled:hover:bg-[position:0_0]" // evita animación de hover si está deshabilitado
+            ].join(" ")}
           >
             Siguiente
           </button>

@@ -1,7 +1,7 @@
 import React from "react";
 
 type Props = {
-  current: number; // (para el numero dentro de los circulos)
+  current: number; // para el numero dentro de los circulos
   primary?: string; // color morado
 };
 
@@ -56,7 +56,7 @@ export default function ProgressBar({
                 )}
               </div>
 
-              {/* Linea entre círculos */}
+              {/* Linea entre circulos */}
               {i < steps.length - 1 && (
                 <div
                   className="h-[3px] rounded-full flex-1 mx-2 sm:mx-4 transition-colors duration-300 opacity-80"

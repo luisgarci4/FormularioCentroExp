@@ -12,7 +12,7 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
     { id: "otros", label: "Otros", icon: "💡" },
   ];
 
-  // Habilita "Siguiente" solo si hay una opción seleccionada
+  // Habilita boton Siguiente solo si hay una opcion seleccionada
   const canContinue = Boolean(opcionSeleccionada);
 
   return (
@@ -42,7 +42,6 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
               key={op.id}
               type="button"
               onClick={() => setOpcionSeleccionada(op.id)}
-              aria-pressed={activa}
               className={[
                 "rounded-2xl border bg-white transition-all duration-200",
                 "px-4 h-24 sm:h-28",
@@ -87,7 +86,6 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
           type="button"
           onClick={onNext}
           disabled={!canContinue}
-          aria-disabled={!canContinue}
           className={[
             "h-12 rounded-xl text-white font-semibold transition-all duration-500",
             "bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee] bg-[length:200%_auto]",

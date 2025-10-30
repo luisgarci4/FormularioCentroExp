@@ -38,7 +38,7 @@ export default function RegistroExitoso() {
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
           ¡Gracias por tu visita!
         </h1>
-        <p className="text-sm sm:text-base text-gray-600">
+        <p className="text-sm sm:text-2xl text-gray-600">
           Te esperamos en Tlapps City
         </p>
 
@@ -48,7 +48,7 @@ export default function RegistroExitoso() {
             onClick={() => setMostrarComentario(true)}
             className="
               mt-4 px-5 py-2 rounded-xl border border-[#260089]/20
-              text-[#260089] font-semibold text-sm sm:text-base
+              text-[#260089] font-semibold text-sm sm:text-2xl
               bg-[#f6f3ff] hover:bg-[#ede7ff]
               transition-all duration-300 shadow-sm
               hover:shadow-md active:scale-[0.98]

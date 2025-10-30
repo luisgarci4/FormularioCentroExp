@@ -23,10 +23,10 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
     "linear-gradient(90deg, #f6c1b9 0%, #f4a6a0 100%)",
     "linear-gradient(90deg, #f7d5a5 0%, #f3b673 100%)",
     "linear-gradient(90deg, #f9eab1 0%, #d7e9c4 100%)",
-    "linear-gradient(90deg, #c6e6c3 0%, #a4d6a0 100%)",
     "linear-gradient(90deg, #b4e1e6 0%, #9ad2f5 100%)",
+    "linear-gradient(90deg, #c6e6c3 0%, #a4d6a0 100%)",
   ];
-  const ringColors = ["#ee9e95", "#e8b070", "#d9e29f", "#99cf98", "#94cfe9"];
+  const ringColors = ["#ee9e95", "#e8b070", "#d9e29f", "#94cfe9", "#99cf98"];
 
   // Habilita boton Siguiente solo si hay seleccion
   const canContinue = selected !== null;

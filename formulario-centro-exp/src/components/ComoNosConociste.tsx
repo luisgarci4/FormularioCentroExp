@@ -6,8 +6,11 @@ export default function ComoNosConociste({ onPrev, onNext }: Props) {
   const [opcionSeleccionada, setOpcionSeleccionada] = useState<string | null>(null);
 
   const opciones = [
-    { id: "invitacion-personal", label: "Invitación personal", icon: "💌" },
     { id: "redes-sociales", label: "Redes sociales", icon: "📱" },
+    { id: "agente-ventas", label: "Agente de ventas", icon: "👨‍💼" },
+    { id: "expo", label: "Expo", icon: "🖼️" },
+    { id: "pagina-web", label: "Página web", icon: "🛜" },
+    { id: "invitacion-personal", label: "Invitación personal", icon: "💌" },
     { id: "recomendacion", label: "Recomendación", icon: "👥" },
     { id: "otros", label: "Otros", icon: "💡" },
   ];

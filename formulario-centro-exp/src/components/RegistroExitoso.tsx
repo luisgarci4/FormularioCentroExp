@@ -1,6 +1,7 @@
 import { useState } from "react";
+type Props = { onRestart?: () => void };
 
-export default function RegistroExitoso() {
+export default function RegistroExitoso({ onRestart }: Props) {
   const [mostrarComentario, setMostrarComentario] = useState(false);
   const [comentario, setComentario] = useState("");
 
@@ -94,6 +95,17 @@ export default function RegistroExitoso() {
             )}
           </div>
         )}
+
+         <button
+        type="button"
+        onClick={onRestart}
+        className="mt-4 w-full h-11 rounded-xl text-white font-semibold
+                  bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]
+                  bg-[length:200%_auto] transition-all duration-500
+                  hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]"
+      >
+       Terminar encuesta
+      </button>
       </div>
 
       <style>{`

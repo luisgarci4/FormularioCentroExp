@@ -2,7 +2,7 @@ import { useState } from "react";
 
 type Props = { onRestart?: () => void };
 
-export default function RegistroExitoso({ onRestart }: Props  ) {
+export default function RegistroExitoso({ onRestart }: Props) {
   const [mostrarComentario, setMostrarComentario] = useState(false);
   const [comentario, setComentario] = useState("");
 
@@ -17,43 +17,43 @@ export default function RegistroExitoso({ onRestart }: Props  ) {
   return (
     <div
       className="
-        w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl
-        p-8 sm:p-10 border border-gray-100 flex flex-col min-h-[28rem]
+        w-full
+        max-w-[28rem] sm:max-w-lg md:max-w-xl lg:max-w-2xl
+        bg-white shadow-xl rounded-2xl
+        p-8 sm:p-10 md:p-12
+        border border-gray-100 flex flex-col min-h-[28rem]
       "
+      aria-label="Pantalla: Registro exitoso"
     >
-      <div className="flex-1 flex flex-col items-center justify-center text-center space-y-5">
+      {/* Contenido principal centrado */}
+      <div className="flex-1 flex flex-col items-center justify-center text-center space-y-5 md:space-y-6">
         <svg
-          className="w-16 h-16 sm:w-20 sm:h-20 text-green-600 mx-auto"
+          className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 text-green-600 mx-auto"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
+          aria-hidden
         >
           <circle cx="12" cy="12" r="10" strokeWidth="2" />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M9 12l2 2 4-4"
-          />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4" />
         </svg>
 
-        <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
+        <h1 className="text-3xl sm:text-4xl md:text-[2.5rem] font-extrabold tracking-tight text-[#260089]">
           ¡Gracias por tu visita!
         </h1>
-        <p className="text-sm sm:text-2xl text-gray-600">
+        <p className="text-sm sm:text-base md:text-lg text-gray-600">
           Te esperamos en Tlapps City
         </p>
 
-        {/* Pregunta convertida en boton */}
+        {/* Botón para desplegar comentario (mejorado para tablets) */}
         {!mostrarComentario ? (
           <button
             onClick={() => setMostrarComentario(true)}
             className="
-              mt-4 px-5 py-2 rounded-xl border border-[#260089]/20
-              text-[#260089] font-semibold text-sm sm:text-2xl
+              mt-2 px-5 py-2 md:px-6 md:py-3 rounded-xl border border-[#260089]/20
+              text-[#260089] font-semibold text-sm sm:text-base md:text-lg
               bg-[#f6f3ff] hover:bg-[#ede7ff]
-              transition-all duration-300 shadow-sm
-              hover:shadow-md active:scale-[0.98]
+              transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98]
               cursor-pointer select-none
             "
           >
@@ -63,7 +63,7 @@ export default function RegistroExitoso({ onRestart }: Props  ) {
           <div className="w-full mt-6 text-left animate-fadeIn">
             <label
               htmlFor="comentario"
-              className="block text-sm sm:text-base font-medium text-black mb-2"
+              className="block text-sm sm:text-base md:text-lg font-medium text-black mb-2"
             >
               Comentario <span className="text-gray-500 font-normal">(opcional)</span>
             </label>
@@ -73,19 +73,19 @@ export default function RegistroExitoso({ onRestart }: Props  ) {
               onChange={(e) => setComentario(e.target.value)}
               placeholder="Escribe aquí tus comentarios o sugerencias..."
               className="
-                w-full h-28 sm:h-32 resize-none p-4 rounded-xl border border-black/20
-                focus:outline-none focus:border-[#260089] bg-white text-gray-800
-                placeholder:text-gray-400 transition-all duration-200
+                w-full h-28 sm:h-32 md:h-36 resize-none p-4 md:p-5 rounded-xl
+                border border-black/20 focus:outline-none focus:border-[#260089]
+                bg-white text-gray-800 placeholder:text-gray-400 transition-all duration-200
               "
             />
 
-            {/* Boton enviar visible solo si hay texto */}
+            {/* Mostrar botón Enviar solo si hay texto */}
             {comentario.trim() && (
               <button
                 type="button"
                 onClick={handleEnviar}
                 className="
-                  mt-4 w-full h-11 rounded-xl text-white font-semibold
+                  mt-4 w-full h-11 md:h-12 rounded-xl text-white font-semibold
                   bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]
                   bg-[length:200%_auto] transition-all duration-500
                   hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]
@@ -98,12 +98,13 @@ export default function RegistroExitoso({ onRestart }: Props  ) {
         )}
       </div>
 
+      {/* Botón Finalizar (anclado abajo) */}
       <div className="mt-auto w-full pt-8">
         <button
           type="button"
           onClick={onRestart}
           className="
-            w-full h-12 rounded-xl text-white font-semibold
+            w-full h-12 md:h-14 rounded-xl text-white font-semibold
             bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]
             bg-[length:200%_auto] transition-all duration-500
             hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]

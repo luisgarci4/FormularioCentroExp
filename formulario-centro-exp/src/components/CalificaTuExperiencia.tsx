@@ -26,28 +26,33 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
     "linear-gradient(90deg, #b4e1e6 0%, #9ad2f5 100%)",
     "linear-gradient(90deg, #c6e6c3 0%, #a4d6a0 100%)",
   ];
-  const ringColors = ["#ee9e95", "#e8b070", "#d9e29f", "#94cfe9", "#99cf98"];
+  const ringColors = ["#ee9e95", "#e8b070", "#d9e29f", "#99cf98", "#94cfe9"];
 
-  // Habilita boton Siguiente solo si hay seleccion
   const canContinue = selected !== null;
 
   return (
     <>
-      {/* Tarjeta principal */}
+      {/* Tarjeta principal (mejorada para tablets) */}
       <div
-        className="w-full max-w-[28rem] sm:max-w-lg bg-white shadow-xl rounded-2xl p-8 sm:p-10 border border-gray-100"
+        className="
+          w-full
+          max-w-[28rem] sm:max-w-lg md:max-w-xl lg:max-w-2xl
+          bg-white shadow-xl rounded-2xl
+          p-8 sm:p-10 md:p-12
+          border border-gray-100
+        "
       >
         <div className="text-center sm:text-left">
-          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#260089]">
+          <h1 className="text-3xl sm:text-4xl md:text-[2.5rem] font-extrabold tracking-tight text-[#260089]">
             Tu experiencia
           </h1>
-          <p className="mt-2 text-sm sm:text-base text-gray-600">
+          <p className="mt-2 text-sm sm:text-base md:text-lg text-gray-600">
             Califica tu experiencia en Tlapps City
           </p>
         </div>
 
-        {/* Opciones de satisfaccion */}
-        <div className="mt-6 space-y-4">
+        {/* Opciones de satisfacción (más grandes en md) */}
+        <div className="mt-6 space-y-4 md:space-y-5">
           {opciones.map((op, i) => {
             const isActive = selected === i;
             return (
@@ -55,9 +60,9 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
                 key={op.id}
                 onClick={() => setSelected(i)}
                 className={[
-                  "group relative w-full h-14 sm:h-16 rounded-2xl cursor-pointer select-none overflow-hidden",
-                  "flex items-center gap-3 px-4 sm:px-5 border",
-                  "transition-all duration-300 ease-out will-change-transform",
+                  "group relative w-full rounded-2xl cursor-pointer select-none overflow-hidden",
+                  "flex items-center gap-3 sm:gap-4 px-4 sm:px-5 md:px-6",
+                  "h-14 sm:h-16 md:h-20 border transition-all duration-300 ease-out will-change-transform",
                   isActive
                     ? "shadow-md"
                     : "border-gray-200 hover:border-[#3e00b3]/30 hover:shadow-sm",
@@ -89,13 +94,14 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
                 />
                 <span
                   className={[
-                    "text-2xl transition-transform duration-300 ease-out",
+                    "text-2xl sm:text-3xl md:text-4xl transition-transform duration-300 ease-out",
                     isActive ? "motion-safe:scale-110" : "group-hover:motion-safe:scale-105",
                   ].join(" ")}
+                  aria-hidden
                 >
                   {op.emoji}
                 </span>
-                <span className="text-base sm:text-lg font-semibold text-gray-800">
+                <span className="text-base sm:text-lg md:text-xl font-semibold text-gray-800">
                   {op.label}
                 </span>
               </label>
@@ -108,7 +114,7 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
           <button
             type="button"
             onClick={onPrev}
-            className="h-12 rounded-xl border border-black/10 bg-white text-black font-medium transition active:scale-[0.98]"
+            className="h-12 md:h-14 rounded-xl border border-black/10 bg-white text-black font-medium transition active:scale-[0.98]"
           >
             Anterior
           </button>
@@ -117,12 +123,12 @@ export default function SatisfaccionFormCard({ onPrev, onNext }: Props) {
             onClick={onNext}
             disabled={!canContinue}
             className={[
-              "h-12 rounded-xl text-white font-semibold",
+              "h-12 md:h-14 rounded-xl text-white font-semibold",
               "bg-gradient-to-r from-[#260089] via-[#3e00b3] to-[#6200ee]",
               "bg-[length:200%_auto] transition-all duration-500",
               "hover:bg-[position:100%_0] hover:shadow-lg active:scale-[0.98]",
               "disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none",
-              "disabled:hover:bg-[position:0_0]" // evita animacion de hover si esta deshabilitado
+              "disabled:hover:bg-[position:0_0]"
             ].join(" ")}
           >
             Siguiente

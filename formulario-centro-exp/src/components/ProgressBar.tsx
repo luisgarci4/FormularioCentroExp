@@ -17,7 +17,7 @@ export default function ProgressBar({
 
   return (
     <div className="w-full">
-      <div className="mx-auto max-w-[28rem] sm:max-w-lg px-2 sm:px-4">
+      <div className="mx-auto max-w-[28rem] sm:max-w-lg md:max-w-xl lg:max-w-2xl px-2 sm:px-4">
         <div className="flex items-center justify-center">
           {steps.map((_, i) => (
             <React.Fragment key={i}>
